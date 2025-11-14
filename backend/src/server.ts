@@ -1,6 +1,6 @@
 import express from "express";
 import connectDatabase from "./app";
-import routes from "./routes/tarefasroutes"; // Corrigido para tarefasRoutes
+import routes from "./routes/tarefasroutes";
 import dotenv from "dotenv";
 import cors from "cors";
 
@@ -12,10 +12,18 @@ const app = express();
 // Conectar ao banco de dados
 connectDatabase();
 
+// ✅ APENAS PRODUÇÃO
+app.use(
+  cors({
+    origin: "https://tudolistfrontend.netlify.app", // APENAS SEU FRONTEND
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  })
+);
+
 // Configuração do Express
-app.use(cors()); // Permite requisições de qualquer origem
-app.use(express.json()); // Para interpretar JSON nas requisições
-app.use("/api", routes); // Prefixar as rotas com "/api"
+app.use(express.json());
+app.use("/api", routes);
 
 // Iniciar o servidor
 const PORT = process.env.PORT || 3000;
