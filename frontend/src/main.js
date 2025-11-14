@@ -1,7 +1,7 @@
 import { createApp } from "vue";
-import App from "./App.vue";
+import App from "../src/App.vue";
 import { createPinia } from "pinia"; // Importar Pinia
-import router from "./router"; // Se estiver usando o Vue Router
+import router from "../src/router/index"; // Se estiver usando o Vue Router
 
 const app = createApp(App);
 
