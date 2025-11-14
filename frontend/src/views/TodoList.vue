@@ -24,8 +24,8 @@
           placeholder="Digite sua tarefa..."
           @keypress.enter="adicionarTarefaRapida"
         />
-       
-        <button class="button-details" @click="abrirModalNovaTarefa">
+        
+        <button class="button-details" @click="adicionarTarefaRapida">
           📋 Nova Tarefa 
         </button>
       </div>
