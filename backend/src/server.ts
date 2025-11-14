@@ -16,6 +16,7 @@ connectDatabase();
 app.use(
   cors({
     origin: "https://tudolistfrontend.netlify.app", // APENAS SEU FRONTEND
+    
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
